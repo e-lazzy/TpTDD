@@ -31,5 +31,23 @@ class TddTest {
 		assertEquals("Hello, Kevin.", tdd.exi1("kevin"));
 	}
 	
+	@Test
+	public void testeExi2_1() {
+		assertEquals("Hello, my friend.", tdd.exi2(""));
+	}
 	
+	@Test
+	public void testeExi2_2() {
+		assertEquals("Hello, my friend.", tdd.exi2(null));
+	}
+	
+	@Test
+	public void testeExi2_3() {
+		assertEquals("Hello, my friend.", tdd.exi2("  "));
+	}
+	
+	@Test
+	public void testeExi1_5() {
+		assertEquals("Hello, Bob.", tdd.exi1("Bob"));
+	}
 }

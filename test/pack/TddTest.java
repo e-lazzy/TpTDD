@@ -14,10 +14,22 @@ class TddTest {
 	}
 
 	@Test
-	public void testeExi1() {
+	public void testeExi1_1() {
 		assertEquals("Hello, Bob.", tdd.exi1("Bob"));
-		assertEquals("Hello, Bob.", tdd.exi1("bob"));
-		assertEquals("Hello, .", tdd.exi1(""));
 	}
-
+	@Test
+	public void testeExi1_2() {
+		assertEquals("Hello, Bob.", tdd.exi1("bob"));
+	}
+	@Test
+	public void testeExi1_3() {
+		assertEquals("Hello,  .", tdd.exi1(" "));
+	}
+	
+	@Test
+	public void testeExi1_4() {
+		assertEquals("Hello, Kevin.", tdd.exi1("kevin"));
+	}
+	
+	
 }

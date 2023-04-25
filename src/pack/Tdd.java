@@ -7,7 +7,10 @@ public class Tdd {
 	}
 	
 	public String exi1(String nom) {
-		if(nom.i)
-		return "Hello, " + nom+ ".";
+		
+		return "Hello, " + nom.substring(0, 1).toUpperCase() + nom.substring(1)+ ".";
 	}
+	
+	
 }
+

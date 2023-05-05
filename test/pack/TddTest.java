@@ -69,40 +69,55 @@ class TddTest {
 	
 	@Test
 	public void testeExi4_1() {
-		assertEquals("Hello, Zack, Belette.", tdd.welcome("Zack,Belette"));
+		assertEquals("Hello, Zack and Belette.", tdd.welcome("Zack,Belette"));
 	}
 	
 	@Test
 	public void testeExi4_2() {
-		assertEquals("Hello, Zack, Belette.", tdd.welcome("zack,belette"));	
+		assertEquals("Hello, Zack and Belette.", tdd.welcome("zack,belette"));	
 	}
 	 
 	@Test
 	public void testeExi4_3() {
-		assertEquals("Hello, Zack, Belette.", tdd.welcome("zack,Belette"));	
+		assertEquals("Hello, Zack and Belette.", tdd.welcome("zack,Belette"));	
 	}
 	
 	@Test
 	public void testeExi4_4() {
-		assertEquals("Hello, Zack, Belette.", tdd.welcome("zack,belette"));	
+		assertEquals("Hello, Zack and Belette.", tdd.welcome("zack,belette"));	
 	}
 	
 	@Test
 	public void testeExi5_1() {
-		assertEquals("Hello, Zack, Belette, Marmotten.", tdd.welcome("zack,belette,marmotten"));	
+		assertEquals("Hello, Zack, Belette and Marmotten.", tdd.welcome("zack,belette,marmotten"));	
 	}
 	@Test
 	public void testeExi5_2() {
-		assertEquals("Hello, Zack, Belette, Marmotten, Kevin, PHilipe.", tdd.welcome("zack,Belette,marmotten,Kevin,pHilipe"));	
+		assertEquals("Hello, Zack, Belette, Marmotten, Kevin and PHilipe.", tdd.welcome("zack,Belette,marmotten,Kevin,pHilipe"));	
 	}
 	
 	@Test
 	public void testeExi6_1() {		
-		assertEquals("Hello, Zack, Philipe. AND HELLO, BELETTE !", tdd.welcome("Zack,BELETTE,philipe"));	
+		assertEquals("Hello, Zack and Philipe. AND HELLO, BELETTE !", tdd.welcome("Zack,BELETTE,philipe"));	
 	}
 	
 	@Test
 	public void testeExi6_2() {
-		assertEquals("Hello, Bob, Zack, PHilipe. AND HELLO, BELETTE, MARMOTTEN !", tdd.welcome("bob,BELETTE,MARMOTTEN,Zack,pHilipe"));	
+		assertEquals("Hello, Bob, Zack and PHilipe. AND HELLO, BELETTE AND MARMOTTEN !", tdd.welcome("bob,BELETTE,MARMOTTEN,Zack,pHilipe"));	
+	}
+	
+	@Test
+	public void testeExi7_1() {
+		assertEquals("Hello, Bob, Zack and PHilipe. AND HELLO, BELETTE AND MARMOTTEN !", tdd.welcome("bob,BELETTE,MARMOTTEN,Zack,pHilipe"));
+	}
+	
+	@Test
+	public void testeExi7_2() {
+		assertEquals("Hello, Bob, Zack and PHilipe. AND HELLO, BELETTE !", tdd.welcome("bob,BELETTE,Zack,pHilipe"));
+	}
+	
+	@Test
+	public void testeExi7_3() {
+		assertEquals("Hello, Bob. AND HELLO, BELETTE AND MARMOTTEN !", tdd.welcome("bob,BELETTE,MARMOTTEN"));
 	}
 }

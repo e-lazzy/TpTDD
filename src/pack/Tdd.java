@@ -8,8 +8,8 @@ public class Tdd {
 	
 public String welcome(String listeNoms) {
 		String nomsConcat="";
-		String hello="";
-		String point = ".";
+		String nomsMaj="";
+		String phrase = "";
 		if(NomsIsEmpty(listeNoms)) 
 			return "Hello, my friend.";
 		else {
@@ -17,22 +17,26 @@ public String welcome(String listeNoms) {
 			for(int i=0;i<noms.length;i++) {
 				
 				if(noms[i].toUpperCase().equals(noms[i])) {
-					nomsConcat=nomsConcat.concat(", "+firstMaj(noms[i]));
-					hello="HELLO";
-					point=" !";
+					nomsMaj=nomsMaj.concat(", "+firstMaj(noms[i]));
 				}				
 				else {
 					nomsConcat=nomsConcat.concat(", "+firstMaj(noms[i]));
-					hello="Hello";
 				}
 			
 			}
-			return hello + nomsConcat + point;
+			if(NomsIsEmpty(nomsMaj))
+				phrase="Hello"+ nomsConcat +".";
+			else if(NomsIsEmpty(nomsConcat))
+				phrase="HELLO"+nomsMaj+ " !";
+			else
+				phrase="Hello"+ nomsConcat +". AND HELLO"+nomsMaj+ " !";
+			return phrase;
 		}
 	}
 	private String firstMaj(String mot) {
 		return mot.substring(0, 1).toUpperCase() + mot.substring(1);
 	}
+	
 	private boolean NomsIsEmpty(String listeNoms) {
 		return listeNoms==null || listeNoms.isEmpty() || listeNoms.isBlank() || "".equals(listeNoms);
 	}

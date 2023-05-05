@@ -96,5 +96,13 @@ class TddTest {
 		assertEquals("Hello, Zack, Belette, Marmotten, Kevin, PHilipe.", tdd.welcome("zack,Belette,marmotten,Kevin,pHilipe"));	
 	}
 	
+	@Test
+	public void testeExi6_1() {		
+		assertEquals("Hello, Zack, Philipe. AND HELLO, BELETTE !", tdd.welcome("Zack,BELETTE,philipe"));	
+	}
 	
+	@Test
+	public void testeExi6_2() {
+		assertEquals("Hello, Bob, Zack, PHilipe. AND HELLO, BELETTE, MARMOTTEN !", tdd.welcome("bob,BELETTE,MARMOTTEN,Zack,pHilipe"));	
+	}
 }

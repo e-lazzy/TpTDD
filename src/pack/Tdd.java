@@ -6,15 +6,36 @@ public class Tdd {
 		
 	}
 	
-public String welcome(String nom) {
-		if(nom==null || nom.isEmpty() || nom.isBlank() || "".equals(nom)) 
+public String welcome(String listeNoms) {
+		String nomsConcat="";
+		String hello="";
+		String point = ".";
+		if(NomsIsEmpty(listeNoms)) 
 			return "Hello, my friend.";
-		else if(nom.toUpperCase().equals(nom)) {
-			return "HELLO, "+ nom + " !";
+		else {
+			String[] noms = listeNoms.split(",");
+			for(int i=0;i<noms.length;i++) {
+				
+				if(noms[i].toUpperCase().equals(noms[i])) {
+					nomsConcat=nomsConcat.concat(", "+firstMaj(noms[i]));
+					hello="HELLO";
+					point=" !";
+				}				
+				else {
+					nomsConcat=nomsConcat.concat(", "+firstMaj(noms[i]));
+					hello="Hello";
+				}
+			
+			}
+			return hello + nomsConcat + point;
 		}
-		
-		else
-			return "Hello, " + nom.substring(0, 1).toUpperCase() + nom.substring(1)+ ".";
 	}
-
+	private String firstMaj(String mot) {
+		return mot.substring(0, 1).toUpperCase() + mot.substring(1);
+	}
+	private boolean NomsIsEmpty(String listeNoms) {
+		return listeNoms==null || listeNoms.isEmpty() || listeNoms.isBlank() || "".equals(listeNoms);
+	}
+	
 }
+

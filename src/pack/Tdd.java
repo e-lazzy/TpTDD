@@ -7,35 +7,27 @@ public class Tdd {
 	}
 	
 public String welcome(String listeNoms) {
+		
 		String listeNomsConcat[]= new String[100];
 		String listeNomsMaj[]=new String[100];
 		int indConcat=0;
 		int indMaj=0;
-		String phrase = "";
 		if(NomsIsEmpty(listeNoms)) 
 			return "Hello, my friend.";
 		else {
+			listeNoms=noSpace(listeNoms);
 			String[] noms = listeNoms.split(",");
 			for(int i=0;i<noms.length;i++) {
-				
 				if(noms[i].toUpperCase().equals(noms[i])) {
 					listeNomsMaj[indMaj++]=firstMaj(noms[i]);
 				}				
 				else {
 					listeNomsConcat[indConcat++]=firstMaj(noms[i]);
 				}
-			
 			}
 			String nomsConcat=nomsConcatenation(listeNomsConcat,indConcat,"and");
 			String nomsMaj=nomsConcatenation(listeNomsMaj,indMaj,"AND");
-			
-			if(NomsIsEmpty(nomsMaj))
-				phrase="Hello"+ nomsConcat +".";
-			else if(NomsIsEmpty(nomsConcat))
-				phrase="HELLO"+nomsMaj+ " !";
-			else
-				phrase="Hello"+ nomsConcat +". AND HELLO"+nomsMaj+ " !";
-			return phrase;
+			return makePhrase(nomsConcat,nomsMaj);
 		}
 	}
 
@@ -59,6 +51,20 @@ public String welcome(String listeNoms) {
 			concat=", "+listeNoms[0];
 		}
 		return concat;
+	}
+	private String makePhrase(String nomsConcat,String nomsMaj) {
+		String phrase="";
+		if(NomsIsEmpty(nomsMaj))
+			phrase="Hello"+ nomsConcat +".";
+		else if(NomsIsEmpty(nomsConcat))
+			phrase="HELLO"+nomsMaj+ " !";
+		else
+			phrase="Hello"+ nomsConcat +". AND HELLO"+nomsMaj+ " !";
+		return phrase;
+	}
+	
+	private String noSpace(String listeNoms) {
+		return listeNoms.replace(" ", "");
 	}
 	
 }

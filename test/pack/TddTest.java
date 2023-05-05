@@ -120,4 +120,14 @@ class TddTest {
 	public void testeExi7_3() {
 		assertEquals("Hello, Bob. AND HELLO, BELETTE AND MARMOTTEN !", tdd.welcome("bob,BELETTE,MARMOTTEN"));
 	}
+	
+	@Test
+	public void testeExi8_1() {		
+		assertEquals("Hello, Zack and Philipe. AND HELLO, BELETTE !", tdd.welcome("Zack   ,     BELETTE      ,philipe    "));	
+	}
+	
+	@Test
+	public void testeExi8_2() {		
+		assertEquals("Hello, Zack and Philipe. AND HELLO, BELETTE !", tdd.welcome("    Zack,BELETTE,    philipe "));	
+	}
 }
